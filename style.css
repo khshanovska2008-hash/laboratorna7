@@ -1,0 +1,153 @@
+:root {
+        --bg: #fafafa;
+        --panel: #ffffff;
+        --border: #e2e2e2;
+        --text: #222222;
+        --text-muted: #767676;
+        --accent: #3462cf;
+        --accent-bg: #eef2fc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .page {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 40px 20px 64px;
+    }
+
+    header { margin-bottom: 32px; }
+
+    header h1 {
+        margin: 0 0 6px;
+        font-size: 22px;
+    }
+
+    header p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 14px;
+    }
+
+    .group-title {
+        margin: 36px 0 14px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .task {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 16px 18px;
+        margin-bottom: 16px;
+    }
+
+    .task h3 {
+        margin: 0 0 6px;
+        font-size: 15.5px;
+        font-weight: 600;
+    }
+
+    .task p.desc {
+        margin: 0 0 12px;
+        color: var(--text-muted);
+        font-size: 13.5px;
+    }
+
+    button {
+        appearance: none;
+        border: 1px solid var(--accent);
+        background: var(--accent-bg);
+        color: var(--accent);
+        font-size: 13.5px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 6px 8px 0;
+    }
+
+    button:hover:not(:disabled) {
+        background: var(--accent);
+        color: #fff;
+    }
+
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .output:empty { display: none; }
+
+    .output p {
+        margin: 0 0 6px;
+        padding: 8px 12px;
+        background: var(--accent-bg);
+        border-radius: 4px;
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .output p.error {
+        background: #fff0f0;
+        color: #a32c2c;
+    }
+
+    .field { margin: 0 0 12px; }
+    .field label {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text-muted);
+        font-size: 13.5px;
+    }
+
+    .field input {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 8px 10px;
+        font: inherit;
+    }
+
+    .field input:focus { outline: 2px solid var(--accent-bg); border-color: var(--accent); }
+
+    #map {
+        width: 100%;
+        height: 340px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        margin: 12px 0;
+        z-index: 0;
+    }
+
+    .hint {
+        color: var(--text-muted);
+        font-size: 12.5px;
+        margin: 6px 0 0;
+    }
+
+    @media (max-width: 500px) {
+        button { width: 100%; margin-right: 0; }
+        #map { height: 290px; }
+    }
+
+    #map {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    }
+
+    #map .leaflet-container {
+    width: 100%;
+    height: 100%;
+    }

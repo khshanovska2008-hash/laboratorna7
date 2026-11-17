@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Практична робота</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+    <header>
+        <h1>Практична робота</h1>
+        <p>Хшановська Уляна №18</p>
+    </header>
+
+    <h2 class="group-title">Частина 1. Визначення місцезнаходження</h2>
+
+    <section class="task">
+        <h3>1. Отримання поточних координат</h3>
+        <p class="desc">Визначення широти, довготи та часу отримання координат за допомогою getCurrentPosition().</p>
+        <button id="getLocation" type="button">Визначити місцезнаходження</button>
+        <div class="output" id="out1" aria-live="polite"></div>
+    </section>
+
+    <section class="task">
+        <h3>2. Обробка помилок геолокації</h3>
+        <p class="desc">Перевірка підтримки Geolocation API та повідомлення про заборону доступу, недоступність позиції або завершення часу очікування.</p>
+        <button id="checkGeo" type="button">Перевірити підтримку API</button>
+        <div class="output" id="out2" aria-live="polite"></div>
+    </section>
+
+    <section class="task">
+        <h3>3. Розрахунок відстані до коледжу</h3>
+        <p class="desc">Обчислення найкоротшої відстані на поверхні Землі між поточною позицією та коледжем за формулою гаверсинусів.</p>
+        <button id="showDistance" type="button">Показати відстань до коледжу</button>
+        <div class="output" id="out3" aria-live="polite"></div>
+    </section>
+
+    <section class="task">
+        <h3>4. Точність визначення координат</h3>
+        <p class="desc">Показник accuracy визначає оцінений радіус похибки місцезнаходження в метрах.</p>
+        <button id="showAccuracy" type="button">Показати точність</button>
+        <div class="output" id="out4" aria-live="polite"></div>
+    </section>
+
+    <h2 class="group-title">Частина 2. Відстеження місцезнаходження</h2>
+
+    <section class="task">
+        <h3>5. Відстеження координат у реальному часі</h3>
+        <p class="desc">watchPosition() оновлює координати під час переміщення, а clearWatch() припиняє стеження.</p>
+        <button id="watch" type="button">Почати відстеження</button>
+        <button id="clearWatch" type="button" disabled>Зупинити відстеження</button>
+        <div class="output" id="out5" aria-live="polite"></div>
+    </section>
+
+    <h2 class="group-title">Індивідуальне завдання</h2>
+
+    <section class="task">
+        <h3>6. Карта та маркери місцезнаходження</h3>
+        <p class="desc">Карта Leaflet із поточною позицією, коледжем та історією маркерів. Натисни на маркер, щоб переглянути координати й час визначення позиції.</p>
+        <div id="map" role="region" aria-label="Інтерактивна карта місцезнаходжень"></div>
+        <button id="centerMe" type="button" disabled>Показати мою позицію</button>
+        <button id="centerCollege" type="button">Показати коледж</button>
+        <button id="clearHistory" type="button">Очистити історію маркерів</button>
+        <div class="output" id="out6" aria-live="polite"></div>
+        <p class="hint">Сині позначки — поточна позиція, зелені — історія, червона — коледж, фіолетова — пункт призначення.</p>
+    </section>
+
+    <section class="task">
+        <h3>7. Пошук пункту призначення за координатами</h3>
+        <p class="desc">Введи широту та довготу. Карта переміститься до заданої точки й додасть маркер із координатами.</p>
+        <form id="destinationForm">
+            <div class="field">
+                <label for="destLat">Широта (від −90 до 90)</label>
+                <input id="destLat" name="latitude" type="text" inputmode="decimal" placeholder="Наприклад: 50.4501" required>
+            </div>
+            <div class="field">
+                <label for="destLng">Довгота (від −180 до 180)</label>
+                <input id="destLng" name="longitude" type="text" inputmode="decimal" placeholder="Наприклад: 30.5234" required>
+            </div>
+            <button type="submit">Перейти до пункту призначення</button>
+        </form>
+        <div class="output" id="out7" aria-live="polite"></div>
+    </section>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="script.js"></script>
+</body>
+</html>
